@@ -20,9 +20,8 @@ Below steps to be repeated for successfully managing and deploying the APIs on c
 2. Log in to your account in CLI using "cf login" command
 3. Create a clear db service instance using this command : cf create-service cleardb spark mysql
 4. Configure the manifest.yml file using below sample configs :
----
 applications:
-  - name: pivotalservice
+  - name: dbs-dummy-service
     buildpack: dbs-dummy
     path: build/libs/dbs-dummy-service-0.0.1-SNAPSHOT.jar
     services:
