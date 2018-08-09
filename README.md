@@ -75,6 +75,9 @@ Hazelcaset to be used for caching and in memory db cache and making sure the API
 ======================================
 
 
+Use Devops approach to cater multiple regions API support.
+API versioning :  Use versioning approach v1/v2 to take care of maintaining the various versions of an API.
+
 
 
 
