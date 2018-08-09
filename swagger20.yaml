@@ -1,0 +1,92 @@
+---
+swagger: "2.0"
+info:
+  description: "No description"
+  version: "1.0.0"
+  title: "Account Balance API"
+  contact: {}
+host: "dbs-dummy.com"
+basePath: "/accountBalance"
+schemes:
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+security:
+- Basic authentication: []
+- OAuth2:
+  - "dbs.account.balance"
+  - "dbs.update.account"
+paths:
+  /accountBalance:
+    get:
+      summary: "Get the account balance of all the clients"
+      parameters:
+      - name: "clientId"
+        in: "query"
+        required: false
+        type: "string"
+        x-example: "john"
+      responses:
+        200:
+          description: "success response"
+        401:
+          description: "exception in authorization"
+        404:
+          description: "account balance for selected client id not found"
+    post:
+      summary: "Create a new account balance"
+      parameters:
+      - name: "client id"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+  /accountBalance{clientId}:
+    get:
+      summary: "get account balance of a clientid."
+      parameters:
+      - name: "clientId"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+    post:
+      summary: "create new account balance of a client id"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+    put:
+      summary: "update existing account balance of a client id"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+    delete:
+      summary: "delete account balance of a client id"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+    parameters:
+    - name: "clientId"
+      in: "path"
+      required: true
+      type: "string"
+securityDefinitions:
+  Basic authentication:
+    type: "basic"
+  OAuth2:
+    type: "oauth2"
+    authorizationUrl: ""
+    tokenUrl: ""
+    flow: "accessCode"
+    scopes:
+      dbs.account.balance: "get the account balance"
+      dbs.update.account: "update the account balance"

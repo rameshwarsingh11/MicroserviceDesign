@@ -1,0 +1,99 @@
+#%RAML 1.0
+title: "Account Balance API"
+description: "No description"
+version: "1.0.0"
+protocols:
+- "HTTPS"
+baseUri: "https://dbs-dummy.com/accountBalance"
+mediaType:
+- "application/json"
+annotationTypes:
+  x-restlet: "any"
+securitySchemes:
+  Basic authentication:
+    type: "Basic Authentication"
+  OAuth2:
+    type: "OAuth 2.0"
+    describedBy:
+      queryParameters:
+        clientId:
+          type: "string"
+          example: "john"
+    settings:
+      authorizationUri: ""
+      accessTokenUri: ""
+      authorizationGrants:
+      - "authorization_code"
+      - "implicit"
+      - "password"
+      - "client_credentials"
+      scopes:
+      - "dbs.account.balance"
+      - "dbs.update.account"
+securedBy:
+- "Basic authentication"
+- OAuth2:
+    scopes:
+    - "dbs.account.balance"
+    - "dbs.update.account"
+/accountBalance:
+  get:
+    displayName: "Get the account balance of all the clients"
+    queryParameters:
+      clientId:
+        type: "string"
+        required: false
+        example: "john"
+    responses:
+      200:
+        description: "success response"
+      401:
+        description: "exception in authorization"
+      404:
+        description: "account balance for selected client id not found"
+  post:
+    displayName: "Create a new account balance"
+    queryParameters:
+      client id:
+        type: "string"
+/accountBalance{clientId}:
+  uriParameters:
+    clientId:
+      type: "string"
+  get:
+    displayName: "get account balance of a clientid."
+    queryParameters:
+      clientId:
+        type: "string"
+        required: false
+  post:
+    displayName: "create new account balance of a client id"
+  put:
+    displayName: "update existing account balance of a client id"
+  delete:
+    displayName: "delete account balance of a client id"
+(x-restlet):
+  texts:
+    q23nfkc:
+      title: "Error Codes"
+      content: "This API uses standard HTTP status codes to indicate the status of\
+        \ a response.\n\nThere are two main categories of error responses. Each have\
+        \ a different response payload structure.\n\n* Simple errors\n* Detailed errors\n\
+        \n\n# Simple errors\n\n| Name | Code | Description |\n| -------- | --------\
+        \ | -------- |\n| Bad request     | 400     | The request was unacceptable\
+        \     |\n| Unauthorized     | 401     | The request has not been applied because\
+        \ it lacks valid authentication credentials for the target resource.     |\n\
+        | Forbidden     | 403     | The server understood the request, but is refusing\
+        \ to fulfill it     |\n| Not Found     | 404     | The server has not found\
+        \ anything matching the request URI     |\n| Not acceptable     | 406    \
+        \ | The server is unable to return a response in the format that was requested\
+        \ by the client     |\n| Unsupported Media Type     | 415     | The server\
+        \ is refusing to service the request because the entity of the request is\
+        \ in a format not supported by the requested resource for the requested method\
+        \     |\n| Too many requests     | 429     | Too many requests hit the API\
+        \ too quickly     |\n| Server error     | 500     | A technical error occured\
+        \ in Restlet Cloud     |\n\n\n\n\n\n\n# Detailed errors\n| Name | Code | Description\
+        \ |\n| -------- | -------- | -------- |\n| Unprocessable entity     | 422\
+        \     | The server understands the content type of the request entity, and\
+        \ the syntax of the request entity is correct, but was unable to process the\
+        \ contained instructions.     |\n\n\n\n\n"
