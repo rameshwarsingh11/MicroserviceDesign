@@ -35,6 +35,7 @@ https://dbs-dummy.com/accountBalance
 // This will list out all the account balances of all of your clients.
 
 =======================================
+
 Interprocess communication between two APIs :
 Use Apache Active MQ and kafka for inter process communication. The data will flow out from one micro service to a queue and read by another micro service. The facilitation between Active MQ and micro service will be done my Apache MQ.
 
