@@ -44,7 +44,7 @@ Externatilization of API properties :
 Deploy the environment specific configs on storm UI and present the path to cloud foundry service discovery . It will load the required properties based on environment.
 Deploy the environment specific configs on storm UI and present the path to cloud foundry service discovery . It will load the required properties based on environment.
 The folder structure to be used as below :
-Config
+/config
 	-DEV
 	-QA
 	-STAGE
