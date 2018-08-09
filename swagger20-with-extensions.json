@@ -1,0 +1,53 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "No description",
+    "version" : "1.0.0",
+    "title" : "Money Transfer API",
+    "contact" : { }
+  },
+  "host" : "dbs-dummy.com",
+  "basePath" : "/moneyTransfer",
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/moneytransfer" : {
+      "get" : {
+        "summary" : "This will list out all the money transfer options available in the bank.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        }
+      }
+    },
+    "/moneyTransfer/{clientd}" : {
+      "get" : {
+        "summary" : "Money transfer for one client.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "clientd",
+        "in" : "path",
+        "required" : true,
+        "type" : "string"
+      } ]
+    }
+  },
+  "securityDefinitions" : {
+    "OAuth2" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "",
+      "tokenUrl" : "",
+      "flow" : "accessCode",
+      "scopes" : { }
+    }
+  }
+}
