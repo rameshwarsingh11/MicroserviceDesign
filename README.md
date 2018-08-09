@@ -26,8 +26,10 @@ applications:
     path: build/libs/dbs-dummy-service-0.0.1-SNAPSHOT.jar
     services:
       - mysql
+      
 5. push the microservices jar file using "cf push" command.
 6. Check the status of the deployed service.
 7. Now you can test your end points.
 https://dbs-dummy.com/accountBalance
+
 // This will list out all the account balances of all of your clients.
