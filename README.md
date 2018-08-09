@@ -33,3 +33,28 @@ applications:
 https://dbs-dummy.com/accountBalance
 
 // This will list out all the account balances of all of your clients.
+
+=======================================
+Interprocess communication between two APIs :
+Use Apache Active MQ and kafka for inter process communication. The data will flow out from one micro service to a queue and read by another micro service. The facilitation between Active MQ and micro service will be done my Apache MQ.
+
+=========================================
+
+Externatilization of API properties :
+Deploy the environment specific configs on storm UI and present the path to cloud foundry service discovery . It will load the required properties based on environment.
+Deploy the environment specific configs on storm UI and present the path to cloud foundry service discovery . It will load the required properties based on environment.
+The folder structure to be used as below :
+Config
+	-DEV
+	-QA
+	-STAGE
+	-UAT
+	-PAT
+	-PROD
+
+
+======================================
+
+
+
+
